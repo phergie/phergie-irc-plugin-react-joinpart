@@ -1,0 +1,26 @@
+{
+    "name": "phergie/phergie-irc-plugin-react-joinpart",
+    "description": "Phergie plugin for provides commands to instruct the bot to join and part channels",
+    "keywords": [ "irc", "bot", "react", "plugin" ],
+    "license": "BSD-2-Clause",
+    "support": {
+        "email": "team@phergie.org",
+        "irc": "irc://irc.freenode.net/phergie",
+        "issues": "https://github.com/phergie/phergie-irc-plugin-react-joinpart/issues",
+        "source": "https://github.com/phergie/phergie-irc-plugin-react-joinpart"
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "phergie/phergie-irc-bot-react": "dev-master",
+        "phergie/phergie-irc-plugin-react-command": "1.0.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*",
+        "phake/phake": "1.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Phergie\\Irc\\Plugin\\React\\JoinPart\\": "src"
+        }
+    }
+}
