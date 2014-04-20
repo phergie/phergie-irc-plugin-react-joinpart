@@ -15,7 +15,7 @@ use Phergie\Irc\Bot\React\EventQueueInterface;
 use Phergie\Irc\Plugin\React\Command\CommandEvent;
 
 /**
- * Plugin for provides commands to instruct the bot to join and part channels.
+ * Plugin for providing commands to instruct the bot to join and part channels.
  *
  * @category Phergie
  * @package Phergie\Irc\Plugin\React\JoinPart

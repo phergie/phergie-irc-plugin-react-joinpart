@@ -1,6 +1,6 @@
 # phergie/phergie-irc-plugin-react-joinpart
 
-[Phergie](http://github.com/phergie/phergie-irc-bot-react/) plugin for provides commands to instruct the bot to join and part channels.
+[Phergie](http://github.com/phergie/phergie-irc-bot-react/) plugin for providing commands to instruct the bot to join and part channels.
 
 [![Build Status](https://secure.travis-ci.org/phergie/phergie-irc-plugin-react-joinpart.png?branch=master)](http://travis-ci.org/phergie/phergie-irc-plugin-react-joinpart)
 
