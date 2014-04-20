@@ -1,6 +1,6 @@
 {
     "name": "phergie/phergie-irc-plugin-react-joinpart",
-    "description": "Phergie plugin for provides commands to instruct the bot to join and part channels",
+    "description": "Phergie plugin for providing commands to instruct the bot to join and part channels",
     "keywords": [ "irc", "bot", "react", "plugin" ],
     "license": "BSD-2-Clause",
     "support": {
