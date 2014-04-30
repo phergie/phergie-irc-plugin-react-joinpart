@@ -18,6 +18,9 @@
         "phpunit/phpunit": "4.0.*",
         "phake/phake": "1.0.*"
     },
+    "suggest": {
+        "phergie/phergie-irc-plugin-react-commandhelp": "provides interactive help for commands"
+    },
     "autoload": {
         "psr-4": {
             "Phergie\\Irc\\Plugin\\React\\JoinPart\\": "src"

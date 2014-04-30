@@ -33,6 +33,8 @@ class Plugin extends AbstractPlugin
         return array(
             'command.join' => 'handleJoinCommand',
             'command.part' => 'handlePartCommand',
+            'command.join.help' => 'handleJoinHelp',
+            'command.part.help' => 'handlePartHelp',
         );
     }
 
@@ -61,5 +63,56 @@ class Plugin extends AbstractPlugin
         $params = $event->getCustomParams();
         $channels = $params[0];
         $queue->ircPart($channels);
+    }
+
+    /**
+     * Displays help information for the command to join a specified channel.
+     *
+     * @param \Phergie\Irc\Plugin\React\Command\CommandEvent $event
+     * @param \Phergie\Irc\Bot\React\EventQueueInterface $queue
+     */
+    public function handleJoinHelp(CommandEvent $event, EventQueueInterface $queue)
+    {
+        $this->sendHelpReply($event, $queue, array(
+            'Usage: join channels [keys]',
+            'Instructs the bot to join one or more channels, with names delimited by commas.',
+            'Optionally, channel keys may be specified after channel names, also delimited by commas.',
+            'See https://tools.ietf.org/html/rfc2812#section-3.2.1',
+        ));
+    }
+
+    /**
+     * Displays help information for the command to part a specified channel.
+     *
+     * @param \Phergie\Irc\Plugin\React\Command\CommandEvent $event
+     * @param \Phergie\Irc\Bot\React\EventQueueInterface $queue
+     */
+    public function handlePartHelp(CommandEvent $event, EventQueueInterface $queue)
+    {
+        $this->sendHelpReply($event, $queue, array(
+            'Usage: part channels',
+            'Instructs the bot to part one or more channels, with names delimited by commas.',
+            'See https://tools.ietf.org/html/rfc2812#section-3.2.2',
+        ));
+    }
+
+    /**
+     * Responds to a help command.
+     *
+     * @param \Phergie\Irc\Plugin\React\Command\CommandEvent $event
+     * @param \Phergie\Irc\Bot\React\EventQueueInterface $queue
+     * @param array $messages
+     */
+    protected function sendHelpReply(CommandEvent $event, EventQueueInterface $queue, array $messages)
+    {
+        $method = 'irc' . $event->getCommand();
+        $targets = $event->getTargets();
+        $target = reset($targets);
+        if ($target === $event->getConnection()->getNickname()) {
+            $target = $event->getNick();
+        }
+        foreach ($messages as $message) {
+            $queue->$method($target, $message);
+        }
     }
 }
