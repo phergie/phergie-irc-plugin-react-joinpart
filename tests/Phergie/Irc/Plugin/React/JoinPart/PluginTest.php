@@ -68,10 +68,25 @@ class PluginTest extends \PHPUnit_Framework_TestCase
     public function dataProviderHandleHelp()
     {
         $data = array();
-        $data[] = array('#channel', '#channel', 'handleJoinHelp');
-        $data[] = array('bot', 'user', 'handleJoinHelp');
-        $data[] = array('#channel', '#channel', 'handlePartHelp');
-        $data[] = array('bot', 'user', 'handlePartHelp');
+
+        $targets = array(
+            '#channel' => '#channel',
+            'bot' => 'user',
+        );
+
+        $methods = array(
+            'handleJoinCommand',
+            'handleJoinHelp',
+            'handlePartCommand',
+            'handlePartHelp',
+        );
+
+        foreach ($targets as $request => $response) {
+            foreach ($methods as $method) {
+                $data[] = array($request, $response, $method);
+            }
+        }
+
         return $data;
     }
 
@@ -89,6 +104,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase
         Phake::when($connection)->getNickname()->thenReturn('bot');
 
         $event = $this->getMockCommandEvent();
+        Phake::when($event)->getCustomParams()->thenReturn(array());
         Phake::when($event)->getConnection()->thenReturn($connection);
         Phake::when($event)->getCommand()->thenReturn('PRIVMSG');
         Phake::when($event)->getTargets()->thenReturn(array($requestTarget));

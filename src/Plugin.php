@@ -48,9 +48,13 @@ class Plugin extends AbstractPlugin
     public function handleJoinCommand(CommandEvent $event, EventQueueInterface $queue)
     {
         $params = $event->getCustomParams();
-        $channels = $params[0];
-        $keys = isset($params[1]) ? $params[1] : null;
-        $queue->ircJoin($channels, $keys);
+        if (!$params) {
+            $this->handleJoinHelp($event, $queue);
+        } else {
+            $channels = $params[0];
+            $keys = isset($params[1]) ? $params[1] : null;
+            $queue->ircJoin($channels, $keys);
+        }
     }
 
     /**
@@ -62,8 +66,12 @@ class Plugin extends AbstractPlugin
     public function handlePartCommand(CommandEvent $event, EventQueueInterface $queue)
     {
         $params = $event->getCustomParams();
-        $channels = $params[0];
-        $queue->ircPart($channels);
+        if (!$params) {
+            $this->handlePartHelp($event, $queue);
+        } else {
+            $channels = $params[0];
+            $queue->ircPart($channels);
+        }
     }
 
     /**
