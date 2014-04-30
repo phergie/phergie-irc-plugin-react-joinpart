@@ -24,7 +24,8 @@ class Plugin extends AbstractPlugin
 {
     /**
      * Indicates that the plugin monitors events for "join" and "part" commands
-     * emitted by the Command plugin.
+     * emitted by the Command plugin and corresponding events for "help"
+     * commands emitted by the CommandHelp plugin.
      *
      * @return array
      */
