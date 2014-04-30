@@ -61,7 +61,7 @@ class PluginTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider for testHandleJoinHelp() and testHandlePartHelp().
+     * Data provider for testHandleHelp().
      *
      * @return array
      */
