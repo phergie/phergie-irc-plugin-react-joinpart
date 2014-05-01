@@ -91,9 +91,6 @@ class PluginTest extends \PHPUnit_Framework_TestCase
      */
     public function testHandleHelp($method)
     {
-        $connection = $this->getMockConnection();
-        Phake::when($connection)->getNickname()->thenReturn('bot');
-
         $event = $this->getMockCommandEvent();
         Phake::when($event)->getCustomParams()->thenReturn(array());
         Phake::when($event)->getSource()->thenReturn('#channel');
@@ -134,15 +131,5 @@ class PluginTest extends \PHPUnit_Framework_TestCase
     protected function getMockEventQueue()
     {
         return Phake::mock('Phergie\Irc\Bot\React\EventQueueInterface');
-    }
-
-    /**
-     * Returns a mock connection.
-     *
-     * @return \Phergie\Irc\ConnectionInterface
-     */
-    protected function getMockConnection()
-    {
-        return Phake::mock('\Phergie\Irc\ConnectionInterface');
     }
 }
