@@ -115,11 +115,7 @@ class Plugin extends AbstractPlugin
     protected function sendHelpReply(CommandEvent $event, EventQueueInterface $queue, array $messages)
     {
         $method = 'irc' . $event->getCommand();
-        $targets = $event->getTargets();
-        $target = reset($targets);
-        if ($target === $event->getConnection()->getNickname()) {
-            $target = $event->getNick();
-        }
+        $target = $event->getSource();
         foreach ($messages as $message) {
             $queue->$method($target, $message);
         }

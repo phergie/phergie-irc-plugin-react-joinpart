@@ -69,11 +69,6 @@ class PluginTest extends \PHPUnit_Framework_TestCase
     {
         $data = array();
 
-        $targets = array(
-            '#channel' => '#channel',
-            'bot' => 'user',
-        );
-
         $methods = array(
             'handleJoinCommand',
             'handleJoinHelp',
@@ -81,10 +76,8 @@ class PluginTest extends \PHPUnit_Framework_TestCase
             'handlePartHelp',
         );
 
-        foreach ($targets as $request => $response) {
-            foreach ($methods as $method) {
-                $data[] = array($request, $response, $method);
-            }
+        foreach ($methods as $method) {
+            $data[] = array($method);
         }
 
         return $data;
@@ -93,29 +86,25 @@ class PluginTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests handleJoinHelp() and handlePartHelp().
      *
-     * @param string $requestTarget
-     * @param string $responseTarget
      * @param string $method
      * @dataProvider dataProviderHandleHelp
      */
-    public function testHandleHelp($requestTarget, $responseTarget, $method)
+    public function testHandleHelp($method)
     {
         $connection = $this->getMockConnection();
         Phake::when($connection)->getNickname()->thenReturn('bot');
 
         $event = $this->getMockCommandEvent();
         Phake::when($event)->getCustomParams()->thenReturn(array());
-        Phake::when($event)->getConnection()->thenReturn($connection);
+        Phake::when($event)->getSource()->thenReturn('#channel');
         Phake::when($event)->getCommand()->thenReturn('PRIVMSG');
-        Phake::when($event)->getTargets()->thenReturn(array($requestTarget));
-        Phake::when($event)->getNick()->thenReturn('user');
         $queue = $this->getMockEventQueue();
 
         $plugin = new Plugin;
         $plugin->$method($event, $queue);
 
         Phake::verify($queue, Phake::atLeast(1))
-            ->ircPrivmsg($responseTarget, $this->isType('string'));
+            ->ircPrivmsg('#channel', $this->isType('string'));
     }
 
     /**

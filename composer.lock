@@ -247,12 +247,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phergie/phergie-irc-event.git",
-                "reference": "46b6080c58bf03874a9d6df8efc0d6d693d1ebfc"
+                "reference": "a51278ab28afd1aaab17ee5d6d82f39fb77884c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phergie/phergie-irc-event/zipball/46b6080c58bf03874a9d6df8efc0d6d693d1ebfc",
-                "reference": "46b6080c58bf03874a9d6df8efc0d6d693d1ebfc",
+                "url": "https://api.github.com/repos/phergie/phergie-irc-event/zipball/a51278ab28afd1aaab17ee5d6d82f39fb77884c1",
+                "reference": "a51278ab28afd1aaab17ee5d6d82f39fb77884c1",
                 "shasum": ""
             },
             "require": {
@@ -260,6 +260,7 @@
                 "php": ">=5.3.3"
             },
             "require-dev": {
+                "phake/phake": "1.0.*",
                 "phpunit/phpunit": "4.0.*"
             },
             "type": "library",
@@ -277,7 +278,7 @@
                 "event",
                 "irc"
             ],
-            "time": "2014-04-28 23:23:03"
+            "time": "2014-05-01 00:00:12"
         },
         {
             "name": "phergie/phergie-irc-generator",
@@ -824,12 +825,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "dc8424046273c1fdf0aeafa6de7b2f70c93a0283"
+                "reference": "4ce28b2d053db0a41d9a3ffd50b3347f976441af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/dc8424046273c1fdf0aeafa6de7b2f70c93a0283",
-                "reference": "dc8424046273c1fdf0aeafa6de7b2f70c93a0283",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4ce28b2d053db0a41d9a3ffd50b3347f976441af",
+                "reference": "4ce28b2d053db0a41d9a3ffd50b3347f976441af",
                 "shasum": ""
             },
             "require": {
@@ -889,7 +890,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-04-30 11:48:57"
+            "time": "2014-04-30 12:57:53"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
