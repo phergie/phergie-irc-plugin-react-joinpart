@@ -8,11 +8,12 @@
  * @package Phergie\Irc\Plugin\React\JoinPart
  */
 
-namespace Phergie\Irc\Plugin\React\JoinPart;
+namespace Phergie\Irc\Tests\Plugin\React\JoinPart;
 
 use Phake;
 use Phergie\Irc\Bot\React\EventQueueInterface;
 use Phergie\Irc\Plugin\React\Command\CommandEvent;
+use Phergie\Irc\Plugin\React\JoinPart\Plugin;
 
 /**
  * Tests for the Plugin class.
