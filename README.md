@@ -21,7 +21,18 @@ See Phergie documentation for more information on
 
 ## Configuration
 
-This plugin requires no configuration.
+This plugin has no configuration, but does require the Command plugin.
+
+```php
+return array(
+    'plugins' => array(
+        // dependency
+        new \Phergie\Irc\Plugin\React\Command\Plugin,
+
+        new \Phergie\Irc\Plugin\React\JoinPart\Plugin,
+    )
+);
+```
 
 ## Tests
 
